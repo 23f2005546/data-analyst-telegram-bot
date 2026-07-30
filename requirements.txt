@@ -1,0 +1,4 @@
+(
+echo python-telegram-bot
+echo openai
+) > requirements.txt
