@@ -12,3 +12,5 @@
 {"type": "outgoing", "chat_id": 6655552364, "text": "{\"answer\":30,\"log_url\":\"https://raw.githubusercontent.com/23f2005546/data-analyst-telegram-bot/main/run.jsonl\"}", "timestamp": 1785407341.2146657}
 {"type": "incoming", "chat_id": 6655552364, "text": "What is 10% of 200? Reply with ONLY this JSON: {\"answer\": number}", "timestamp": 1785407356.516798}
 {"type": "outgoing", "chat_id": 6655552364, "text": "{\"answer\":20}", "timestamp": 1785407359.4325929}
+{"type": "incoming", "chat_id": 6655552364, "text": "What is 10% of 200? Reply with ONLY this JSON: {\"answer\": number}", "timestamp": 1785431016.6877692}
+{"type": "outgoing", "chat_id": 6655552364, "text": "{\"answer\":20}", "timestamp": 1785431022.6492596}
