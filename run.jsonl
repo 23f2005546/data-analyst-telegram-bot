@@ -1,0 +1,10 @@
+{"type": "incoming", "chat_id": 6655552364, "text": "Hi", "timestamp": 1785405244.892565}
+{"type": "outgoing", "chat_id": 6655552364, "text": "{\"log_url\": \"TEMPORARY_LOG_URL\"}", "timestamp": 1785405251.3917854}
+{"type": "incoming", "chat_id": 6655552364, "text": "What is 25% of 800? Return {\"answer\": number}", "timestamp": 1785405269.4243827}
+{"type": "outgoing", "chat_id": 6655552364, "text": "{\"answer\": 200, \"log_url\": \"TEMPORARY_LOG_URL\"}", "timestamp": 1785405272.2653809}
+{"type": "incoming", "chat_id": 6655552364, "text": "What is 15% of 200? Reply with ONLY this JSON: {\"answer\": 30}", "timestamp": 1785405914.0769138}
+{"type": "outgoing", "chat_id": 6655552364, "text": "{\"answer\":30}", "timestamp": 1785405918.4626527}
+{"type": "incoming", "chat_id": 6655552364, "text": "What is 10% of 200? Reply with ONLY this JSON: {\"answer\": number}", "timestamp": 1785405940.0464833}
+{"type": "outgoing", "chat_id": 6655552364, "text": "{\"answer\":20}", "timestamp": 1785405943.6847267}
+{"type": "incoming", "chat_id": 6655552364, "text": "What is 15% of 200? Reply with ONLY this JSON: {\"answer\": number, \"log_url\": \"...\"}", "timestamp": 1785405990.3127859}
+{"type": "outgoing", "chat_id": 6655552364, "text": "{\"answer\":30,\"log_url\":\"...\"}", "timestamp": 1785405996.6124034}
