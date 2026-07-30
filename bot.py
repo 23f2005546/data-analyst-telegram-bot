@@ -22,7 +22,7 @@ AIPIPE_TOKEN = os.environ["AIPIPE_TOKEN"]
 
 # IMPORTANT:
 # Change this after creating your public GitHub repository.
-LOG_URL = "TEMPORARY_LOG_URL"
+LOG_URL = "https://raw.githubusercontent.com/23f2005546/data-analyst-telegram-bot/main/run.jsonl"
 
 
 # --------------------------------------------------
