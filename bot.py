@@ -1,3 +1,4 @@
+```python
 import json
 import os
 import time
@@ -20,8 +21,7 @@ from telegram.ext import (
 TELEGRAM_BOT_TOKEN = os.environ["TELEGRAM_BOT_TOKEN"]
 AIPIPE_TOKEN = os.environ["AIPIPE_TOKEN"]
 
-# IMPORTANT:
-# Change this after creating your public GitHub repository.
+# Public URL where the run log can be downloaded
 LOG_URL = "https://raw.githubusercontent.com/23f2005546/data-analyst-telegram-bot/main/run.jsonl"
 
 
@@ -91,7 +91,7 @@ async def handle_message(
         "text": user_text,
     })
 
-    # Get history for this chat
+    # Get conversation history for this chat
     history = conversation_history.setdefault(chat_id, [])
 
     history.append({
@@ -102,7 +102,7 @@ async def handle_message(
     # Keep only recent context
     recent_history = history[-6:]
 
-    system_prompt = """
+    system_prompt = f"""
 You are a careful data analyst.
 
 The user's LAST message contains a data-analysis question and specifies
@@ -120,21 +120,11 @@ IMPORTANT RULES:
 6. Do NOT add explanations.
 7. Do NOT add extra JSON keys.
 8. Match the requested JSON structure exactly.
-9. If the requested object contains a log_url field, use the supplied
-   log URL.
+9. If the requested object contains a log_url field, use this exact URL:
+   {LOG_URL}
 10. If the requested object does NOT contain log_url, do NOT add log_url.
 11. The final response must be valid JSON.
-
-The public log URL is:
-
-TEMP_LOG_URL
 """
-
-    # Insert the actual configured URL
-    system_prompt = system_prompt.replace(
-        "TEMP_LOG_URL",
-        LOG_URL
-    )
 
     try:
         response = client.chat.completions.create(
@@ -181,6 +171,7 @@ TEMP_LOG_URL
         parsed = json.loads(reply_text)
 
     except json.JSONDecodeError:
+
         # Try extracting the JSON object
         start = reply_text.find("{")
         end = reply_text.rfind("}")
@@ -218,7 +209,7 @@ TEMP_LOG_URL
             await update.message.reply_text(final_reply)
             return
 
-    # Make sure the AI returned an object
+    # Make sure the AI returned a JSON object
     if not isinstance(parsed, dict):
         parsed = {
             "answer": parsed
@@ -241,7 +232,7 @@ TEMP_LOG_URL
         "text": final_reply,
     })
 
-    # Send to Telegram
+    # Send answer to Telegram
     await update.message.reply_text(final_reply)
 
 
@@ -272,3 +263,4 @@ app.add_handler(
 print("Bot is running...")
 
 app.run_polling()
+```
